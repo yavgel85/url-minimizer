@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h1>About your URL:</h1>
+    <p>Original link:  {{ link.originalUrl }}</p>
+    <p>Minimized link:
+        <a target="_blank" href="{{ path('short_code', {'code': link.shortCode}) }}">Open</a>
+    </p>
+    <p>URL statistics:
+        <a target="_blank" href="{{ path('link_statistics', {'token': link.token}) }}">Get info</a>
+    </p>
+
+{% endblock %}
+

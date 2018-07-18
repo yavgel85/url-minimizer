@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Statistics by URL</h1>
+
+    <h3>Total visits: {{ visitsCount }}</h3>
+    <ul>
+        {% for entry in statistics %}
+            <li>{{ entry.userAgent }} - IP: {{ entry.clientIP }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
